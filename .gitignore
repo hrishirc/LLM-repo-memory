@@ -1,0 +1,23 @@
+# macOS specific
+.DS_Store
+
+# Editor/IDE specific
+.clinerules/
+.cursor/
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build artifacts
+build/
+dist/
+
+# Logs
+*.log
+
+# Temporary files
+*~
+.#*
