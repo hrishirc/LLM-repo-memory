@@ -1,0 +1,8 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+## Global Reference Adherence Rule
+
+**CRITICAL**: Whenever a workflow document refers to another internal document or section (e.g., 'Refer to [file#section]'), the LLM must read the content of the referenced section and strictly integrate its instructions into the current workflow's execution sequence. This ensures all relevant guidelines and steps are followed without exception.
