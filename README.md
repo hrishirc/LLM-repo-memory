@@ -196,7 +196,7 @@ This section provides ready-to-use prompts for LLM-based coding assistants and m
 > **Prompt for LLMs:**
 >
 > Please install the rules from [https://github.com/hrishirc/LLM-repo-memory](https://github.com/hrishirc/LLM-repo-memory) into my current project.
-> 1. Clone the repository from `https://github.com/hrishirc/LLM-repo-memory` into a default folder (e.g., `~/rules_template_install` on Unix/macOS, `%USERPROFILE%\rules_template_install` on Windows), or ask me for a location.
+> 1. Check if the directory `~/rules_template_install` (Unix/macOS) or `%USERPROFILE%\rules_template_install` (Windows) already exists. If it does, pull the latest changes from the repository using `git pull`. If it doesn't exist, clone the repository from `https://github.com/hrishirc/LLM-repo-memory` into that default folder, or ask me for a location.
 > 2. Run the `scripts/install_rules.sh` (for Unix/macOS) or `scripts/install_rules.cmd` (for Windows) script with the `create` argument, providing the path to my project if known. If not, ask me for it.
 > 3. The script should copy the following folders/files into my project:
 >     - `workflow/`
@@ -211,7 +211,7 @@ This section provides ready-to-use prompts for LLM-based coding assistants and m
 > **Prompt for LLMs:**
 >
 > Please update the rules in my current project from [https://github.com/hrishirc/LLM-repo-memory](https://github.com/hrishirc/LLM-repo-memory).
-> 1. Clone the repository from `https://github.com/hrishirc/LLM-repo-memory` into a default folder (e.g., `~/rules_template_install` on Unix/macOS, `%USERPROFILE%\rules_template_install` on Windows), or ask me for a location.
+> 1. Check if the directory `~/rules_template_install` (Unix/macOS) or `%USERPROFILE%\rules_template_install` (Windows) already exists. If it does, pull the latest changes from the repository using `git pull`. If it doesn't exist, clone the repository from `https://github.com/hrishirc/LLM-repo-memory` into that default folder, or ask me for a location.
 > 2. Run the `scripts/install_rules.sh` (for Unix/macOS) or `scripts/install_rules.cmd` (for Windows) script with the `update` argument, providing the path to my project if known. If not, ask me for it.
 > 3. The script should copy the following folders/files into my project:
 >     - `workflow/`
@@ -247,4 +247,4 @@ This section provides ready-to-use prompts for LLM-based coding assistants and m
 - In `create` mode, existing files are never overwritten.
 - In `update` mode, all files are overwritten with the latest versions from this repo.
 - Directory existence errors are ignored.
-- The scripts are idempotent and safe to run multiple times. 
+- The scripts are idempotent and safe to run multiple times.
