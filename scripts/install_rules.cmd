@@ -1,8 +1,26 @@
 @echo off
 setlocal enabledelayedexpansion
 
+REM Get the script directory and repo root
+set SCRIPT_DIR=%~dp0
+set REPO_ROOT=%SCRIPT_DIR%..\
+
 set MODE=%1
 set TARGET_DIR=%2
+
+REM Define absolute paths for required folders
+set SRC_WORKFLOW=%REPO_ROOT%workflow
+set SRC_TEMPLATES=%REPO_ROOT%templates
+set SRC_CURSOR=%REPO_ROOT%.cursor
+set SRC_CLINERULES=%REPO_ROOT%.clinerules
+
+REM Pre-check for required source folders
+for %%F in ("%SRC_WORKFLOW%" "%SRC_TEMPLATES%" "%SRC_CURSOR%" "%SRC_CLINERULES%") do (
+  if not exist %%F (
+    echo ERROR: Required source directory %%F does not exist.
+    exit /b 1
+  )
+)
 
 if "%MODE%"=="" (
   echo Usage: %0 ^<create^|update^> [target_project_dir]
@@ -18,17 +36,19 @@ if not exist "%TARGET_DIR%" (
   exit /b 1
 )
 
-set FOLDERS=workflow templates .cursor .clinerules
-
-for %%F in (%FOLDERS%) do (
-  if exist "%%F" (
-    call :copy_dir "%%F" "%TARGET_DIR%\%%F"
-    echo [DONE] %%F copied.
-    echo.
-  ) else (
-    echo Source directory does not exist: %%F
-  )
-)
+REM Copy each folder
+call :copy_dir "%SRC_WORKFLOW%" "%TARGET_DIR%\workflow"
+echo [DONE] workflow copied.
+echo.
+call :copy_dir "%SRC_TEMPLATES%" "%TARGET_DIR%\templates"
+echo [DONE] templates copied.
+echo.
+call :copy_dir "%SRC_CURSOR%" "%TARGET_DIR%\.cursor"
+echo [DONE] .cursor copied.
+echo.
+call :copy_dir "%SRC_CLINERULES%" "%TARGET_DIR%\.clinerules"
+echo [DONE] .clinerules copied.
+echo.
 
 echo Installation complete in '%MODE%' mode.
 goto :eof

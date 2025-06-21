@@ -2,8 +2,19 @@
 
 set -e
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+
 MODE="$1"
 TARGET_DIR="$2"
+
+REQUIRED_FOLDERS=("$REPO_ROOT/workflow" "$REPO_ROOT/templates" "$REPO_ROOT/.cursor" "$REPO_ROOT/.clinerules")
+for FOLDER in "${REQUIRED_FOLDERS[@]}"; do
+  if [ ! -d "$FOLDER" ]; then
+    echo "ERROR: Required source directory '$FOLDER' does not exist."
+    exit 1
+  fi
+done
 
 # Prompt for target directory if not provided
 if [ -z "$TARGET_DIR" ]; then
@@ -40,9 +51,12 @@ copy_dir() {
   done
 }
 
-for FOLDER in workflow templates .cursor .clinerules; do
-  copy_dir "$FOLDER" "$TARGET_DIR/$FOLDER"
-  echo "[DONE] $FOLDER copied."
+FOLDER_NAMES=(workflow templates .cursor .clinerules)
+for i in "${!REQUIRED_FOLDERS[@]}"; do
+  SRC="${REQUIRED_FOLDERS[$i]}"
+  DEST="$TARGET_DIR/${FOLDER_NAMES[$i]}"
+  copy_dir "$SRC" "$DEST"
+  echo "[DONE] ${FOLDER_NAMES[$i]} copied."
   echo
 done
 
