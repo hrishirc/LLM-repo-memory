@@ -195,8 +195,8 @@ This section provides ready-to-use prompts for LLM-based coding assistants and m
 
 > **Prompt for LLMs:**
 >
-> Please install the rules from this repository into my current project.
-> 1. Clone this repository into a default folder (e.g., `~/rules_template_install` on Unix/macOS, `%USERPROFILE%\rules_template_install` on Windows), or ask me for a location.
+> Please install the rules from [https://github.com/hrishirc/LLM-repo-memory](https://github.com/hrishirc/LLM-repo-memory) into my current project.
+> 1. Clone the repository from `https://github.com/hrishirc/LLM-repo-memory` into a default folder (e.g., `~/rules_template_install` on Unix/macOS, `%USERPROFILE%\rules_template_install` on Windows), or ask me for a location.
 > 2. Run the `scripts/install_rules.sh` (for Unix/macOS) or `scripts/install_rules.cmd` (for Windows) script with the `create` argument, providing the path to my project if known. If not, ask me for it.
 > 3. The script should copy the following folders/files into my project:
 >     - `workflow/`
@@ -210,8 +210,8 @@ This section provides ready-to-use prompts for LLM-based coding assistants and m
 
 > **Prompt for LLMs:**
 >
-> Please update the rules in my current project from this repository.
-> 1. Clone this repository into a default folder (e.g., `~/rules_template_install` on Unix/macOS, `%USERPROFILE%\rules_template_install` on Windows), or ask me for a location.
+> Please update the rules in my current project from [https://github.com/hrishirc/LLM-repo-memory](https://github.com/hrishirc/LLM-repo-memory).
+> 1. Clone the repository from `https://github.com/hrishirc/LLM-repo-memory` into a default folder (e.g., `~/rules_template_install` on Unix/macOS, `%USERPROFILE%\rules_template_install` on Windows), or ask me for a location.
 > 2. Run the `scripts/install_rules.sh` (for Unix/macOS) or `scripts/install_rules.cmd` (for Windows) script with the `update` argument, providing the path to my project if known. If not, ask me for it.
 > 3. The script should copy the following folders/files into my project:
 >     - `workflow/`
