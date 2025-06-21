@@ -185,4 +185,66 @@ Optimized rule configurations for different AI coding assistants:
 
 - [Workflow Documentation](workflow/README.md)
 - [Architecture Guidelines](knowledge-base/architecture-docs/README.md)
-- [Feature Documentation Guide](knowledge-base/feature-docs/README.md) 
+- [Feature Documentation Guide](knowledge-base/feature-docs/README.md)
+
+## 🚀 LLM Installation Prompts & Manual Setup
+
+This section provides ready-to-use prompts for LLM-based coding assistants and manual instructions for installing the rules/templates into any project.
+
+### 🤖 LLM Prompt: Fresh Install (Create)
+
+> **Prompt for LLMs:**
+>
+> Please install the rules from this repository into my current project.
+> 1. Clone this repository into a default folder (e.g., `~/rules_template_install` on Unix/macOS, `%USERPROFILE%\rules_template_install` on Windows), or ask me for a location.
+> 2. Run the `scripts/install_rules.sh` (for Unix/macOS) or `scripts/install_rules.cmd` (for Windows) script with the `create` argument, providing the path to my project if known. If not, ask me for it.
+> 3. The script should copy the following folders/files into my project:
+>     - `workflow/`
+>     - `templates/`
+>     - `.cursor/`
+>     - `.clinerules/`
+>    Only copy files that do not already exist. If a file exists, skip it. If a directory exists, ignore the error and continue.
+> 4. Confirm completion.
+
+### 🤖 LLM Prompt: Update (Overwrite)
+
+> **Prompt for LLMs:**
+>
+> Please update the rules in my current project from this repository.
+> 1. Clone this repository into a default folder (e.g., `~/rules_template_install` on Unix/macOS, `%USERPROFILE%\rules_template_install` on Windows), or ask me for a location.
+> 2. Run the `scripts/install_rules.sh` (for Unix/macOS) or `scripts/install_rules.cmd` (for Windows) script with the `update` argument, providing the path to my project if known. If not, ask me for it.
+> 3. The script should copy the following folders/files into my project:
+>     - `workflow/`
+>     - `templates/`
+>     - `.cursor/`
+>     - `.clinerules/`
+>    Overwrite any existing files with the new versions. If a directory exists, ignore the error and continue.
+> 4. Confirm completion.
+
+---
+
+### 🛠️ Manual Installation (for Human Users)
+
+1. **Clone this repository** to a folder of your choice.
+2. **Run the install script** from the `scripts/` directory:
+   - On Unix/macOS:
+     ```sh
+     bash scripts/install_rules.sh create /path/to/your/project
+     # or for update (overwrite):
+     bash scripts/install_rules.sh update /path/to/your/project
+     ```
+   - On Windows:
+     ```cmd
+     scripts\install_rules.cmd create C:\path\to\your\project
+     :: or for update (overwrite):
+     scripts\install_rules.cmd update C:\path\to\your\project
+     ```
+3. **If you do not provide the project path as an argument, the script will prompt you for it.**
+
+---
+
+**Note:**
+- In `create` mode, existing files are never overwritten.
+- In `update` mode, all files are overwritten with the latest versions from this repo.
+- Directory existence errors are ignored.
+- The scripts are idempotent and safe to run multiple times. 
